@@ -10,8 +10,9 @@
  # Problems
  ##### Oh so many where to start
 
-1. It took some thought initially to figure out how to make the square change directions when it reached any of the borders. Initially I used an if else if statement
-2. Then this statement didn’t have the desired effect when it hit the corner exactly so I had to break it up in to separate if statements in case it hit the exact corner
-3. Making the cube change colors wasn’t tricky but I had to figure out how to make it co through the majority of the spectrum and not just a single color This took one if statement for each color transition and a nested if statement for when if finished that color range and what was essentially a counter for each type of transition
-4. Then I decided to make the cube rotate Initially I tied this to frame count but I decided to tie the rotation to the mouse’s Y position so that needed to be recoded so the change in rotation speed was smooth
+1. It took some thought initially to figure out how to make the square change directions when it reached any of the borders. Initially I used an if else if statement.
+2. Then this statement didn’t have the desired effect when it hit the corner exactly so I had to break it up in to separate if statements in case it hit the exact corner.
+3. Making the cube change colors wasn’t tricky but I had to figure out how to make it co through the majority of the spectrum and not just a single color This took one if statement for each color transition and a nested if statement for when if finished that color range and what was essentially a counter for each type of transition.
+4. At this point I did something to completly break my code and I wasn't able to find what it was so I had to pull my code back from git to resolve it.
+4. Then I decided to make the cube rotate Initially I tied this to frame count but I decided to tie the rotation to the mouse’s Y position so that needed to be recoded so the change in rotation speed was smooth.
 5. Finally I tied the speed of the color rotation to the mouse’s X position I had to add a lot of extra handles in this so the variables for Red Green and Blue didn’t go outside of the 0-255 range.
