@@ -32,7 +32,6 @@ function setup() {
 }
 
 
-
 function draw() {
 // Movement of center of the ball is calculated then added to the balls x and y vars
     ball.x += ball.delta_x * ball.scale_x;
