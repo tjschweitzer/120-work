@@ -1,5 +1,6 @@
 Trent Schweitzer, Sect 50
 
+[Live Link](https://tjschweitzer.github.io/120-work/HW-7/)
 
 
 # HW 7 | Describe then Alter the Bouncing Ball
