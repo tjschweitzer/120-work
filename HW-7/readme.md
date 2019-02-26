@@ -1,6 +1,5 @@
-Your Name, Your Section Number
+Trent Schweitzer, Sect 50
 
-[Live Sketch Link](Your Live Link)
 
 
 # HW 7 | Describe then Alter the Bouncing Ball
@@ -25,7 +24,7 @@ ball.scale_x = 1;
 ball.scale_y = 1;
 
 function setup() {
-// Canvas will be 400px tall by the wndows width
+// Canvas will be 400px tall by the windows width
     createCanvas(windowWidth, 400);
 // white background
     background(255);
@@ -34,7 +33,7 @@ function setup() {
 
 
 function draw() {
-// Movement of center of the ball is calulated then added to the balls x and y vars
+// Movement of center of the ball is calculated then added to the balls x and y vars
     ball.x += ball.delta_x * ball.scale_x;
     ball.y += ball.delta_y * ball.scale_y;
 
@@ -61,11 +60,10 @@ function mousePressed() {
 }
 ```
 #### How can the ball change directions?
-It is able to change directions by the pair of if statments. They check to see if the ball has gone out of the bounds they have set from from 0 to the height or the width
+It is able to change directions by the pair of if statements. They check to see if the ball has gone out of the bounds they have set from 0 to the height or the width
 
 
 ## How did you alter the sketch?
 
-<!--
-Please describe how and why you changed the sketch?
--->
+I changed the moving object in to a square and then made the rectangle change to a random color when the mouse is clicked. I also made it have more rounded corners when the mouse is clicked.
+I then made a separate function that is called that changes the color of the rectangle back to white and makes it turn back in to a square by using the constrain function.

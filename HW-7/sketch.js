@@ -13,6 +13,15 @@ ball.delta_y = 1;
 // scale_x and scale_y is the "speed" of the ball in the x y direction
 ball.scale_x = 1;
 ball.scale_y = 1;
+// Roundness of edges
+ball.round=0;
+
+//Creats object for the balls color
+let ballColor = {};
+ballColor.red=255;
+ballColor.blue=255;
+ballColor.green=255;
+
 
 function setup() {
   // Canvas will be 400px tall by the wndows width
@@ -39,13 +48,30 @@ function draw() {
         ball.delta_y = -1 * ball.delta_y;
     }
 // White fill
-    fill(255);
+    fill(ballColor.red,ballColor.green,ballColor.blue);
+    changeRect();
 // Draws ball
-    ellipse(ball.x, ball.y, ball.width, ball.width);
+    rect(ball.x, ball.y, ball.width, ball.width,ball.round);
+}
+
+function changeRect(){
+  //Adds 5 to red green and blue  per frame untill it reaches its max at 255
+  ballColor.red = constrain(ballColor.red+5,0,255);
+  ballColor.green= constrain(ballColor.green+5,0,255);
+  ballColor.blue= constrain(ballColor.blue+5,0,255);
+  // Lowers the value untill it reaches 0 and becomes a square again min value of 0
+  ball.round= constrain(ball.round-1,0,45);
 }
 
 // When mouse is pressed it changes the scale of the speed by on the mouses x,y position
 function mousePressed() {
     ball.scale_x = map(mouseX, 0, width, 0.5, 10);
     ball.scale_y = map(mouseY, 0, height, 0.5, 10);
+// Changes the rounded corners from squared
+    ball.round = ball.round+30;
+// assignes a random value between 0-255 for red green and blue
+    ballColor.red = int(random()*255);
+    ballColor.green= int(random()*255);
+    ballColor.blue= int(random()*255);
+
 }
