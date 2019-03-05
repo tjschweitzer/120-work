@@ -11,4 +11,4 @@ We went over while and for loops. After watching all the videos and reading all 
 
 ### Hard parts
 
-I wanted to be able to use a 2d or 3 d array to be able to track the colors of all the objects in this project. I found the way p5 initializes arrays to be very counter intuitive and now work as well as any other programing language i have used. I was unable to make a 3d array and ended up just making a 2d array of objects.
+I wanted to be able to use a 2d or 3d array to be able to track the colors of all the objects in this project. I found the way p5 initializes arrays to be very counter intuitive and now work as well as any other programing language i have used. I was unable to make a 3d array and ended up just making a 2d array of objects.
