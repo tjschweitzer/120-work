@@ -1,52 +1,75 @@
+//I felt like making a dumb joke and wanted to see if I could make images for it. If anyone gets it, bless.
 
+//Array and functions time
+let dumbArray = ["Bone", "Apple", "Teeth"];
+
+let bgColor = 200;
+
+let idx = 0;
+
+//Basic setup stuff; canvas, framerate, background color, etc
 function setup() {
-  createCanvas( 600, 600 );
-  background( 'rgb(204, 228, 254)' );
+  createCanvas(800, 400);
+  frameRate(5);
+}
 
-} // ENDING BRACKET
-
-
-
-//Adding draw function
+//Basic setup stuff; background, text size, etc
 function draw() {
+  background(bgColor);
+  textSize(20);
+
+//Writing the text
+  text("When the meal's real good:" + dumbArray[idx], 200, 200);
+//Making sure array boundaries are followed
+  idx = (idx+1) % 3;
+
+  //Allowing new functions to be called
+    bone();
+    apple();
+    teeth();
+
+}
 
 
 
-drawVenom(); //~~~~~~~~This calls the function drawVenom
 
-}// ~~~~~~~~~ADDED ENDING BRACKET FOR DRAW
+//Drawing the bone
+function bone(){
 
-//Venom function
-function drawVenom() {
-stroke(45);
-fill(65);
-//Background legs
-rect(200, 270, 10, 283, 0, 0, 75, 3);
-rect(350, 275, 10, 275, 0, 0, 3, 75);
+  stroke(255);
+  fill(254, 255, 213);
+  rect(0, 0, 20, 10);
+
+  ellipse(0, 0, 2.5);
+  ellipse(0, 10, 2.5);
+  ellipse(20, 0, 2.5);
+  ellipse(20, 10, 2.5);
+
+}
+
+//Drawing the apple
+function apple(){
+
 //Body
-fill(75);
-noStroke(); //~~~~~~~~~~~MISSING SEMICOLIN
-ellipse(300, 200, 300, 200);
-//Foreground legs
-rect(250, 275, 10, 300, 0, 0, 55, 3);
-rect(400, 260, 10, 315, 0, 0, 3, 55);
-//Left eye
-stroke(55);
-strokeWeight(4);
-fill(255);
-rect(155, 165, 50, 35, 15, 95, 0, 100);
-//Right eye
-rect(250, 165, 75, 35, 95, 0, 95, 0);
-//Tongue
-noStroke(); //~~~~~~~~~~~MISSING SEMICOLIN
-fill('rgb(255, 166, 176)');
-triangle(200, 235, 215, 243, 150, 265);
-triangle(150, 265, 165, 257, 100, 240);
-triangle(100, 240, 110, 245, 105, 200);
-triangle(105, 210, 125, 210, 105, 200);
+  // noStroke();
+  fill(175, 0, 5);
+  ellipse(100,100, 10);
+
+// //Stem
+  fill(0);
+  line(0, 0, 20, 20);
+
+}
+
+//Drawing the teeth
+function teeth(){
+
 //Mouth
-noFill(); //~~~~~~~~~~~MISSING SEMICOLIN
-stroke(45);
-arc(200, 225, 20, 20, 0, radians(270));
-arc(220, 232, 25, 20, radians(280), radians(215));
+  stroke('black');
+  arc(0, 0, 20, 10, 0, PI + QUARTER_PI, CHORD);
+
+//Teeth line/Gap tooth
+  strokeWeight(5);
+  line(0, 0, 0, 20);
+
 }
