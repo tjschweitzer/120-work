@@ -3,6 +3,8 @@ let numberOfGhosts=20;
 let window_w=1080;
 let window_h=900;
 let bg_color=0;
+let timeScore=0;
+
 
 
 function setup(){
