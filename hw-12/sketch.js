@@ -45,13 +45,15 @@ function gameOver(){
 function keyPressed() {
   // if game over no moment is recorded
   if(hsss.getStatus()!=-1){
-    if (keyCode === LEFT_ARROW) {
-      direction = 'left';
-    } else if (keyCode === RIGHT_ARROW) {
+    if (keyCode === LEFT_ARROW && direction != 'right') {
+      if(direction != 'none'){
+        direction = 'left';
+      }
+    } else if (keyCode === RIGHT_ARROW && direction != 'left') {
       direction = 'right';
-    } else if (keyCode === UP_ARROW) {
+    } else if (keyCode === UP_ARROW && direction != 'down') {
         direction = 'up';
-    } else if (keyCode === DOWN_ARROW) {
+    } else if (keyCode === DOWN_ARROW && direction != 'up') {
       direction = 'down';
     }
     hsss.movement();
