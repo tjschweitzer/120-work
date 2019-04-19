@@ -1,69 +1,48 @@
-// https://kylemcdonald.github.io/cv-examples/
 
-var capture;
-var tracker;
+var video;
 
-var rhi, ghi, bhi;
-var rlo, glo, blo;
-
-function setTarget(r, g, b, range) {
-    range = range || 32;
-    rhi = r + range, rlo = r - range;
-    ghi = g + range, glo = g - range;
-    bhi = b + range, blo = b - range;
-}
+var vScale = 4;
+var rLimit=150;
 
 function setup() {
-    var w = 640,
-        h = 480;
-    capture = createCapture({
-        audio: false,
-        video: {
-            width: w,
-            height: h
-        }
-    }, function() {
-        console.log('capture ready.')
-    });
-    capture.elt.setAttribute('playsinline', '');
-    capture.size(w, h);
-    capture.parent('container');
-    cnv = createCanvas(w, h);
-    cnv.parent('container');
-    // capture.hide(); // tracking.js can't track the video when it's hidden
+  createCanvas(640, 480);
+  pixelDensity(1);
+  video = createVideo(
+    ['testblack.mp4'],
+    vidLoad
+  );
+  video.size(width / vScale, height / vScale);
+  video.hide();
+}
 
-    setTarget(255, 255, 255); // by default track white
-    tracking.ColorTracker.registerColor('match', function (r, g, b) {
-        if (r <= rhi && r >= rlo &&
-            g <= ghi && g >= glo &&
-            b <= bhi && b >= blo) {
-            return true;
-        }
-        return false;
-    });
-    tracker = new tracking.ColorTracker(['match']);
-    tracker.minDimension = 20; // make this smaller to track smaller objects
-    capture.elt.id = 'p5video';
-    tracking.track('#p5video', tracker, {
-        camera: true
-    });
-    tracker.on('track', function (event) {
-        cnv.clear();
-        strokeWeight(4);
-        stroke(255, 0, 0);
-        noFill();
-        event.data.forEach(function (r) {
-            rect(r.x, r.y, r.width, r.height);
-        })
-    });
+// This function is called when the video loads
+function vidLoad() {
+  video.loop();
+  video.volume(0);
 }
 
 function draw() {
-    if (mouseIsPressed &&
-        mouseX > 0 && mouseX < width &&
-        mouseY > 0 && mouseY < height) {
-        capture.loadPixels();
-        target = capture.get(mouseX, mouseY);
-        setTarget(target[0], target[1], target[2]);
+  background(0,0,0,15);
+  video.loadPixels();
+  for (var y = 0; y < video.height; y++) {
+    for (var x = 0; x < video.width; x++) {
+      var index = ( x  + (y * video.width)) * 4;
+      var r = video.pixels[index + 0];
+      var g = video.pixels[index + 1];
+      var b = video.pixels[index + 2];
+      var bright = (r + g + b) / 3;
+      var w = map(bright, 0, 255, 0, vScale);
+      noStroke();
+      fill(r,g,b);
+
+
+
+
+      rectMode(CENTER);
+      if (r>rLimit){
+      ellipse(x * vScale, y * vScale, w, w,60);
     }
+    }
+  }
+
 }
