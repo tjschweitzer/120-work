@@ -23,10 +23,12 @@ function setup() {
   background(0,0,0);
   pixelDensity(1);
   video = createVideo(
-    ['media/third320.mp4'],
+    ['media/quarer640.mp4'],
     vidLoad
   );
+  video.size(width / vScale, height / vScale);
   song.play();
+  song.loop();
   amp = new p5.Amplitude();
 
 }
@@ -44,7 +46,7 @@ function draw() {
   let vol = amp.getLevel()
 
 
-  background(0,0,0,20);
+  background(0,0,0,15);
   video.loadPixels();
   for (var y = 0; y < video.height; y++) {
     for (var x = 0; x < video.width; x++) {

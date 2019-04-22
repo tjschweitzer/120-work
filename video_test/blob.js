@@ -8,8 +8,10 @@ class Blob{
   }
 
   frame(volNum){
-    volNum = map(volNum+.2,0,1,0,255);
-    fill(255, volNum, 0);
+    let greenVolNum = map(volNum+.2,0,1,0,255);
+    let redVolNum = map(volNum,0,1,255,178);
+    let blueVolNum = map(volNum,1,0,0,128);
+    fill(redVolNum, greenVolNum, blueVolNum);
     noStroke();
 
     ellipse(this.minx*vScale,this.miny*vScale,this.maxx*vScale-this.minx*vScale,this.maxy*vScale-this.miny*vScale);
