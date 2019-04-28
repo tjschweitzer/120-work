@@ -40,6 +40,7 @@ function vidLoad() {
 
 
 function draw() {
+  video.hide();
 // Black background with a slight alpha
   background(0,0,0,15);
 // Removes all the blobs from the array
