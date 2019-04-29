@@ -9,7 +9,7 @@ function setup() {
 
 //Allowing sketches to be called
   nose = new Nose();
-  for (var i = 0; i < 1; i++) {
+  for (var i = 0; i < 10; i++) {
   obstacles.push(new Obstacle());
 }
 }

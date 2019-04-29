@@ -11,7 +11,8 @@ class Blob{
     let blueVolNum = map(volNum,1,0,0,128);
     fill(redVolNum, 0, blueVolNum);
     noStroke();
-    ellipse(this.minx,this.miny,this.maxx-this.minx,this.maxy-this.miny);
+    ellipseMode(CORNERS);
+    ellipse(this.minx,this.miny,this.maxx,this.maxy);
   }
 
   addpoint(x,y){

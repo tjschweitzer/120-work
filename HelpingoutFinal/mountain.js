@@ -9,7 +9,7 @@ constructor(){
 }
 //Drawing the obstacles
   show() {
-    noStroke();
+    stroke(0);
     fill('brown');
     rect(this.x, 0, this.wi, this.top);
     rect(this.x, height-this.bottom, this.wi, this.bottom);
